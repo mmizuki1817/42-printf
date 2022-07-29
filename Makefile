@@ -17,7 +17,7 @@ NORM = norminette
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_libft.c
+SRCS = ft_printf.c ft_libft.c ft_printf_utils.c
 
 OBJS = ${SRCS:.c=.o}
 
