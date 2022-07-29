@@ -5,33 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/30 01:39:33 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 02:29:53 by mimatsub         ###   ########.fr       */
+/*   Created: 2022/07/30 03:11:07 by mimatsub          #+#    #+#             */
+/*   Updated: 2022/07/30 03:18:40 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int ft_strlen(char *s)
-{
-    size_t i;
-
-    i = 0;
-    while (*s++)
-        i++;
-    return (i);
-}
 
 void ft_put_base(unsigned long long num, char c, int base)
 {
     if (num < (unsigned long long)base)
     {
         if (num <= 9)
-            ft_treat_char(num + '0', 1);
+            ft_putchar_fd(num + '0', 1);
         else if (num > 9 && c == 'x')
-            ft_treat_char('a' + num - 10, 1);
+            ft_putchar_fd('a' + num - 10, 1);
         else if (num > 9 && c == 'X')
-            ft_treat_char('A' + num - 10, 1);
+            ft_putchar_fd('A' + num - 10, 1);
     }
     else 
     {
@@ -53,7 +43,7 @@ int ft_treat_int(int i)
     li = (unsigned long long)i;
     if (i < 0)
     {
-        ft_treat_char('-', 1);
+        ft_putchar_fd('-', 1);
         count = 1;
         li = li * (-1);
     }
@@ -98,10 +88,10 @@ int ft_treat_point(unsigned long long p)
 
     if (!p)
     {
-        ft_treat_str("0x0", 1);
+        ft_putstr_fd("0x0", 1);
         return (3);
     }
-    ft_treat_str("0x", 1);
+    ft_putstr_fd("0x", 1);
     count = 2;
     ft_put_base(p, 'x', 16);
     while (p > 0)

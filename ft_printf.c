@@ -6,32 +6,27 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:42:23 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 02:24:21 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/07/30 03:22:17 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" // static は必要？
+#include "ft_printf.h"
 
-static int ft_treat_str(char *s)
+int ft_treat_str(char *s)
 {
     if (!s)
-    {
         s = "(null)";
-        return (6);
-    }
-        
-    while (*s)
-        write(fd, s++, 1);
+    ft_putstr_fd(s, 1);
     return (ft_strlen(s));
 }
 
-static int ft_treat_char(int c)
+int ft_treat_char(int c)
 {
-    write(fd, &c, 1);
+    ft_putchar_fd(c, 1);
     return (1);
 }
 
-static int ft_treat_something(char c, va_list ap)
+int ft_treat_something(char c, va_list ap)
 {
     size_t count;
 
@@ -51,7 +46,7 @@ static int ft_treat_something(char c, va_list ap)
     return (count);
 }
 
-static int ft_count_output(const char *input, va_list ap)
+int ft_count_output(const char *input, va_list ap)
 {
     size_t i;
     size_t count;
@@ -75,7 +70,7 @@ static int ft_count_output(const char *input, va_list ap)
     return (count);
 }
 
-static int ft_printf(const char* input, ...)
+int ft_printf(const char* input, ...)
 {
     va_list ap;
     size_t count; 
@@ -85,4 +80,12 @@ static int ft_printf(const char* input, ...)
     count = ft_count_output(input, ap);
     va_end(ap);
     return (count);
+}
+
+
+#include <stdio.h>
+int main(void)
+{
+    ft_printf("hoge%x\n", -1);
+    printf("hoge%x\n", -1);
 }
