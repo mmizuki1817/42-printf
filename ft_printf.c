@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:42:23 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 16:48:10 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:54:34 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	ft_treat_str(char *s)
 	if (!s)
 	{
 		s = "(null)";
+		ft_putstr_fd(s, 1);
 		return (6);
 	}	
 	ft_putstr_fd(s, 1);
@@ -168,7 +169,7 @@ int main(void)
 #include <stdio.h>
 int main(void)
 {
-	ft_printf("hoge%x\n", -1);
-	printf("hoge%x\n", -1);
+	ft_printf("hoge%s\n", NULL);
+	printf("hoge%s\n", NULL);
 }
 */
