@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:44:22 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 16:18:41 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:35:55 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int		ft_treat_int(int i);
 int		ft_treat_base(unsigned int num, char c);
 
 int		ft_treat_point(unsigned long long p);
+
+int	ft_printf(const char *input, ...);
 
 #endif
