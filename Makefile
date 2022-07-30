@@ -6,7 +6,7 @@
 #    By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/12 22:32:18 by mimatsub          #+#    #+#              #
-#    Updated: 2022/06/19 22:42:16 by mimatsub         ###   ########.fr        #
+#    Updated: 2022/07/30 16:07:56 by mimatsub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NORM = norminette
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c ft_libft.c ft_printf_utils.c
+SRCS = ft_printf.c ft_printf_utils.c
 
 OBJS = ${SRCS:.c=.o}
 
