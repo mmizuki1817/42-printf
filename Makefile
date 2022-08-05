@@ -6,13 +6,12 @@
 #    By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/12 22:32:18 by mimatsub          #+#    #+#              #
-#    Updated: 2022/07/30 16:07:56 by mimatsub         ###   ########.fr        #
+#    Updated: 2022/08/05 16:07:06 by mimatsub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -fsanitize=address
 NORM = norminette
 
 NAME = libftprintf.a
@@ -34,11 +33,8 @@ fclean: clean
 
 re: fclean all
 
-leak:
-	$(CC) $(LDFLAGS) $(SRCS)
-
 norm:
 	$(NORM) $(SRCS)
 
-.PHONY: all clean fclean re leak norm
+.PHONY: all clean fclean re norm
 

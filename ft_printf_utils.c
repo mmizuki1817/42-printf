@@ -6,19 +6,11 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 03:11:07 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 16:15:42 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:06:13 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	if (s == NULL)
-		return ;
-	while (*s)
-		write(fd, s++, 1);
-}
 
 void	ft_put_base(unsigned long long num, char c, int base)
 {
@@ -96,10 +88,10 @@ int	ft_treat_point(unsigned long long p)
 
 	if (!p)
 	{
-		ft_putstr_fd("0x0", 1);
+		ft_putstr_fd("0x0");
 		return (3);
 	}
-	ft_putstr_fd("0x", 1);
+	ft_putstr_fd("0x");
 	count = 2;
 	ft_put_base(p, 'x', 16);
 	while (p > 0)

@@ -6,27 +6,25 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:42:23 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/07/30 16:54:34 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:06:41 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_treat_str(char *s)
+static size_t	ft_putstr_fd(char *s)
 {
-	size_t	len;
+	size_t	count;
 
-	if (!s)
+	if (s == NULL)
+		return (0);
+	count = 0;
+	while (*s)
 	{
-		s = "(null)";
-		ft_putstr_fd(s, 1);
-		return (6);
-	}	
-	ft_putstr_fd(s, 1);
-	len = 0;
-	while (*s++)
-		len++;
-	return (len);
+		count++;
+		write(1, s++, 1);
+	}
+	return (count);
 }
 
 int	ft_putchar_fd(int c)
@@ -43,7 +41,7 @@ static int	ft_treat_something(char c, va_list ap)
 	if (c == 'c')
 		count = ft_putchar_fd(va_arg(ap, int));
 	else if (c == 's')
-		count = ft_treat_str(va_arg(ap, char *));
+		count = ft_putstr_fd(va_arg(ap, char *));
 	else if (c == 'p')
 		count = ft_treat_point((unsigned long long)va_arg(ap, void *));
 	else if (c == 'x' || c == 'X' || c == 'u')
@@ -167,9 +165,12 @@ int main(void)
 }
 
 #include <stdio.h>
+#include <limits.h>
 int main(void)
 {
-	ft_printf("hoge%s\n", NULL);
-	printf("hoge%s\n", NULL);
+    int len1, len2;
+	len1 = ft_printf("hoge%p\n", NULL);
+	len2 = printf("hoge%p\n", NULL);
+    printf("%i\n%i", len1, len2);
 }
 */
