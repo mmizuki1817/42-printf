@@ -12,26 +12,27 @@
 
 #include "ft_printf.h"
 
-void	ft_put_base(unsigned long long num, char c, int base)
+size_t	ft_put_base(unsigned long long num, char c, int base)
 {
+	size_t count;
 	if (num < (unsigned long long)base)
 	{
 		if (num <= 9)
-			ft_putchar_fd(num + '0');
+			count += ft_putchar_fd(num + '0');
 		else if (num > 9 && c == 'x')
-			ft_putchar_fd('a' + num - 10);
+			count += ft_putchar_fd('a' + num - 10);
 		else if (num > 9 && c == 'X')
-			ft_putchar_fd('A' + num - 10);
+			count += ft_putchar_fd('A' + num - 10);
 	}
 	else
 	{
-		ft_put_base(num / base, c, base);
-		ft_put_base(num % base, c, base);
+		count = ft_put_base(num / base, c, base);
+		count = ft_put_base(num % base, c, base);
 	}
-	return ;
+	return (count);
 }
 
-int	ft_treat_int(int i)
+size_t	ft_treat_int(int i)
 {
 	size_t				count;
 	int					base;
@@ -48,14 +49,9 @@ int	ft_treat_int(int i)
 		li = li * (-1);
 	}
 	base = 10;
-	ft_put_base(li, 'i', base);
+	count = ft_put_base(li, 'i', base);
 	if (li == 0)
 		return (1);
-	while (li > 0)
-	{
-		li = li / base;
-		count ++;
-	}
 	return (count);
 }
 
@@ -70,15 +66,9 @@ size_t	ft_treat_base(unsigned int num, char c)
 		base = 16;
 	else
 		base = 10;
-	ft_put_base((unsigned long long)num, c, base);
-	count = 0;
+	count = ft_put_base((unsigned long long)num, c, base);
 	if (num == 0)
 		return (1);
-	while (num > 0)
-	{
-		num = num / base;
-		count++;
-	}
 	return (count);
 }
 
