@@ -23,8 +23,7 @@ size_t	ft_putstr_fd(char *s)
 		count += write(1, s++, 1);
 	return (count);
 }
-
-int	ft_putchar_fd(int c)
+size_t	ft_putchar_fd(int c)
 {
 	return (write(1, &c, 1));
 }
