@@ -6,13 +6,13 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:42:23 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/08/05 16:06:41 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:14:29 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t	ft_putstr_fd(char *s)
+size_t	ft_putstr_fd(char *s)
 {
 	size_t	count;
 
