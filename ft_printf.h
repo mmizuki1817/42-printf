@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:44:22 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/08/05 16:14:33 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:48:03 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 size_t	ft_putstr_fd(char *s);
 
-int	ft_putchar_fd(int c);
+int		ft_putchar_fd(int c);
 
 void	ft_put_base(unsigned long long num, char c, int base);
 
