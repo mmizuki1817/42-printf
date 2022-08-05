@@ -48,7 +48,7 @@ size_t	ft_treat_int(int i)
 		li = li * (-1);
 	}
 	base = 10;
-	count = ft_put_base(li, 'i', base);
+	count = ft_put_base(li, 'i', base, count);
 	if (li == 0)
 		return (1);
 	return (count);
