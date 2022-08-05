@@ -6,7 +6,7 @@
 /*   By: mimatsub <mimatsub@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:42:23 by mimatsub          #+#    #+#             */
-/*   Updated: 2022/08/05 16:14:29 by mimatsub         ###   ########.fr       */
+/*   Updated: 2022/08/05 16:30:01 by mimatsub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ size_t	ft_putstr_fd(char *s)
 	size_t	count;
 
 	if (s == NULL)
+    {
+        ft_putstr_fd("(null)");
+        return (6);
+    }
 		return (0);
 	count = 0;
 	while (*s)
