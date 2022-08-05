@@ -12,9 +12,8 @@
 
 #include "ft_printf.h"
 
-size_t	ft_put_base(unsigned long long num, char c, int base)
+size_t	ft_put_base(unsigned long long num, char c, int base, size_t count)
 {
-	size_t count;
 	if (num < (unsigned long long)base)
 	{
 		if (num <= 9)
@@ -26,8 +25,8 @@ size_t	ft_put_base(unsigned long long num, char c, int base)
 	}
 	else
 	{
-		count = ft_put_base(num / base, c, base);
-		count = ft_put_base(num % base, c, base);
+		count = ft_put_base(num / base, c, base, count);
+		count = ft_put_base(num % base, c, base, count);
 	}
 	return (count);
 }
@@ -66,7 +65,8 @@ size_t	ft_treat_base(unsigned int num, char c)
 		base = 16;
 	else
 		base = 10;
-	count = ft_put_base((unsigned long long)num, c, base);
+	count = 0;
+	count = ft_put_base((unsigned long long)num, c, base, count);
 	if (num == 0)
 		return (1);
 	return (count);
@@ -80,6 +80,6 @@ size_t	ft_treat_point(unsigned long long p)
 	if (!p)
 		return (ft_putstr_fd("0x0"));
 	count += ft_putstr_fd("0x");
-	count += ft_put_base(p, 'x', 16);
+	count += ft_put_base(p, 'x', 16, count);
 	return (count);
 }
