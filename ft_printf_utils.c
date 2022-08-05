@@ -59,7 +59,7 @@ int	ft_treat_int(int i)
 	return (count);
 }
 
-int	ft_treat_base(unsigned int num, char c)
+size_t	ft_treat_base(unsigned int num, char c)
 {
 	size_t	count;
 	int		base;
@@ -82,22 +82,14 @@ int	ft_treat_base(unsigned int num, char c)
 	return (count);
 }
 
-int	ft_treat_point(unsigned long long p)
+size_t	ft_treat_point(unsigned long long p)
 {
 	size_t	count;
 
+	count = 0;
 	if (!p)
-	{
-		ft_putstr_fd("0x0");
-		return (3);
-	}
-	ft_putstr_fd("0x");
-	count = 2;
-	ft_put_base(p, 'x', 16);
-	while (p > 0)
-	{
-		p = p / 16;
-		count++;
-	}
+		return (ft_putstr_fd("0x0"));
+	count += ft_putstr_fd("0x");
+	count += ft_put_base(p, 'x', 16);
 	return (count);
 }
