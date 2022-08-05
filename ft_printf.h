@@ -20,7 +20,7 @@ size_t	ft_putstr_fd(char *s);
 
 size_t		ft_putchar_fd(int c);
 
-size_t	ft_put_base(unsigned long long num, char c, int base);
+size_t	ft_put_base(unsigned long long num, char c, int base, size_t count);
 
 size_t	ft_treat_int(int i);
 
