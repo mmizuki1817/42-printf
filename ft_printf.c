@@ -20,20 +20,16 @@ size_t	ft_putstr_fd(char *s)
 		return (ft_putstr_fd("(null)"));
 	count = 0;
 	while (*s)
-	{
-		count++;
-		write(1, s++, 1);
-	}
+		count += write(1, s++, 1);
 	return (count);
 }
 
 int	ft_putchar_fd(int c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
-static int	ft_treat_something(char c, va_list ap)
+static size_t	ft_treat_something(char c, va_list ap)
 {
 	size_t	count;
 
@@ -53,7 +49,7 @@ static int	ft_treat_something(char c, va_list ap)
 	return (count);
 }
 
-static int	ft_count_output(const char *input, va_list ap)
+static size_t	ft_count_output(const char *input, va_list ap)
 {
 	size_t	i;
 	size_t	count;
