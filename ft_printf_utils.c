@@ -79,7 +79,7 @@ size_t	ft_treat_point(unsigned long long p)
 	count = 0;
 	if (!p)
 		return (ft_putstr_fd("0x0"));
-	count += ft_putstr_fd("0x");
-	count += ft_put_base(p, 'x', 16, count);
+	ft_putstr_fd("0x");
+	count = ft_put_base(p, 'x', 16, count) + 2;
 	return (count);
 }
